@@ -33,7 +33,7 @@ int main(void) {
 
 // Initializing ADC for channel AD0.1
 void init_ADC(void) {
-    // Setting P0.24 pin as AD0.1 via PINSEL1 (bits 16–17 = 01)
+    // Setting P0.24 pin as AD0.1 via PINSEL1 (bits 16â€“17 = 01)
     PINSEL1 &= ~(0x3 << 16);   // move 0x3 (11) to bits 16 and 17 then invert to 00; used & to only work on bits 16 and 17
     PINSEL1 |=  (0x1 << 16);   // producing bits 0b01 in bits 16 and 17, setting bit 16 to 1 and 17 to 0
 
@@ -65,10 +65,10 @@ unsigned int light_sensor(void) {
 }
 
 void init_LEDs(void) {
-    // Set PINSEL registers to make P3.16–18 act as GPIO
+    // Set PINSEL registers to make P3.16â€“18 act as GPIO
     PINSEL7 &= ~((3 << 0) | (3 << 2) | (3 << 4));  // Clear bits for P3.16, P3.17, P3.18
 
-    // Set direction of P3.16–18 as output
+    // Set direction of P3.16â€“18 as output
     FIO3DIR |= (RED_LED | GREEN_LED | BLUE_LED);
 }
 
